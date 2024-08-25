@@ -45,6 +45,16 @@ export default function QuestionContent(props: Props) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const isExamMode = props.mode === "exam";
+
+  console.log(
+    "isExamMode: ",
+    isExamMode,
+    "selectedAnswer: ",
+    selectedAnswer,
+    "chosenAnswer: ",
+    chosenAnswer
+  );
+
   return (
     <Box
       sx={{

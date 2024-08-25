@@ -19,6 +19,8 @@ interface Props {
 export default function Question(props: Props) {
   const { question, chosenAnswer, mode } = props;
 
+  console.log(question, chosenAnswer, mode);
+
   return (
     <ErrorBoundary fallback={<ErrorScreen />}>
       <QuestionContainer sx={props.sx}>

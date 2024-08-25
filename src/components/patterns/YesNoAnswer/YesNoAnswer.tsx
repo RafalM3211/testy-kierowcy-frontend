@@ -18,6 +18,8 @@ export default function YesNoAnseswer(props: Props) {
     }
   }
 
+  console.log("correctAnswer: ", props.correctAnswer);
+
   return (
     <Box sx={{ display: "flex", justifyContent: "center", ...props.sx }}>
       <AnswerButton
