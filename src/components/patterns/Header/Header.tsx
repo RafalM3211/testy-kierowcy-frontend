@@ -1,6 +1,6 @@
 import { AppBar, Container, Box, Button, useTheme } from "@mui/material";
 
-import useMediaQuery from "@mui/material/useMediaQuery/useMediaQuery";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import { useState } from "react";
 import UserChip from "./subcomponents/UserChip";
 import ButtonLink from "../../atoms/ButtonLink/ButtonLink";
