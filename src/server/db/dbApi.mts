@@ -58,10 +58,10 @@ export async function getCorrectStatisticsByUserId(
   if (res.rowCount != 0) {
     if (res.rows[0].isansweredcorrectly === false) {
       wrong = res.rows[0].count;
-      correct = res.rows[1].count;
+      correct = res.rows[1]?.count || 0;
     } else {
       correct = res.rows[0].count;
-      wrong = res.rows[1].count;
+      wrong = res.rows[1]?.count || 0;
     }
   }
 
