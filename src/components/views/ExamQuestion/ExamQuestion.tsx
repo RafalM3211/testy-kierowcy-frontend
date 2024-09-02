@@ -12,7 +12,7 @@ import { backgroundImg } from "../../../utility/styling";
 import bgImage from "../../../images/backgrounds/wave.svg";
 
 export default function ExamQuestion() {
-  const { data, isLoading, isError, refetch } = useQuery({
+  const { data, isLoading, isFetching, isError, refetch } = useQuery({
     queryKey: ["question"],
     queryFn: getExam,
     retry: 0, //for developement only
@@ -37,7 +37,7 @@ export default function ExamQuestion() {
 
   return (
     <Box sx={{ ...backgroundImg(bgImage) }}>
-      {isLoading ? (
+      {isLoading || isFetching ? (
         <Loader />
       ) : isError ? (
         <ErrorScreen />
