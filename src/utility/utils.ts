@@ -1,3 +1,4 @@
+import { QuestionMode } from "../components/patterns/Question/types";
 import type { Answer, Question } from "../types/globalTypes";
 
 export function trimText(text: string, limit: number) {
@@ -17,9 +18,10 @@ export function isJpgImage(media: Question["media"]) {
 export function getColorForAnswerButton(
   buttonValue: Exclude<Answer, null>,
   correctAnswer: Exclude<Answer, null> | undefined,
-  chosenAnswer: Answer
+  chosenAnswer: Answer,
+  mode: QuestionMode
 ) {
-  if (correctAnswer !== undefined) {
+  if (correctAnswer !== undefined && mode === "preview") {
     const isButtonCorrectAnswer = buttonValue === correctAnswer;
     const isButtonCkecked = buttonValue === chosenAnswer;
     if (isButtonCorrectAnswer) return "success";

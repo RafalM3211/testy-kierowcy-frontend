@@ -3,10 +3,12 @@ import AnswerButton from "../../atoms/AnswerButton/AnswerButton";
 import { getColorForAnswerButton } from "../../../utility/utils";
 import { BasicAnswer } from "../../../types/globalTypes";
 import type { SxProps } from "@mui/material/styles";
+import { QuestionMode } from "../Question/types";
 
 interface Props {
   setChosenAnswer?: (chosenAnswer: boolean) => void;
   chosenAnswer: BasicAnswer;
+  mode: QuestionMode;
   correctAnswer?: boolean;
   sx?: SxProps;
 }
@@ -17,8 +19,6 @@ export default function YesNoAnseswer(props: Props) {
       props.setChosenAnswer(answer);
     }
   }
-
-  console.log("correctAnswer: ", props.correctAnswer);
 
   return (
     <Box sx={{ display: "flex", justifyContent: "center", ...props.sx }}>
@@ -38,7 +38,8 @@ export default function YesNoAnseswer(props: Props) {
         color={getColorForAnswerButton(
           true,
           props.correctAnswer,
-          props.chosenAnswer
+          props.chosenAnswer,
+          props.mode
         )}
       >
         tak
@@ -54,7 +55,8 @@ export default function YesNoAnseswer(props: Props) {
         color={getColorForAnswerButton(
           false,
           props.correctAnswer,
-          props.chosenAnswer
+          props.chosenAnswer,
+          props.mode
         )}
       >
         nie

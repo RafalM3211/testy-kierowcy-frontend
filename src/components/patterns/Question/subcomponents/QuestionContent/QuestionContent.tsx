@@ -46,15 +46,6 @@ export default function QuestionContent(props: Props) {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const isExamMode = props.mode === "exam";
 
-  console.log(
-    "isExamMode: ",
-    isExamMode,
-    "selectedAnswer: ",
-    selectedAnswer,
-    "chosenAnswer: ",
-    chosenAnswer
-  );
-
   return (
     <Box
       sx={{
@@ -89,6 +80,7 @@ export default function QuestionContent(props: Props) {
               setChosenAnswer={setSelectedAnswer}
               chosenAnswer={chosenAnswer as BasicAnswer}
               correctAnswer={props.correctAnswer}
+              mode={props.mode}
               sx={{
                 mt: "35px",
                 fontSize: { xs: "1.5em", md: "1.3em", lg: "1.5em" },
@@ -100,6 +92,7 @@ export default function QuestionContent(props: Props) {
               chosenAnswer={chosenAnswer as SpecializedAnswer}
               correctAnswer={props.correctAnswer}
               setChosenAnswer={setSelectedAnswer}
+              mode={props.mode}
               sx={{ mt: "30px", fontSize: "1.05em" }}
             />
           )}

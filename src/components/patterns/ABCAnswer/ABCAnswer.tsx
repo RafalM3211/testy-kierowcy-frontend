@@ -3,9 +3,11 @@ import AnswerRow from "../ABCAnswer/subcomponents/AnswerRow";
 import { getColorForAnswerButton } from "../../../utility/utils";
 import type { SxProps } from "@mui/material/styles";
 import type { ABCanswers } from "../../../types/globalTypes";
+import { QuestionMode } from "../Question/types";
 
 interface Props {
   answers: ABCanswers;
+  mode: QuestionMode;
   chosenAnswer: keyof ABCanswers | null;
   setChosenAnswer?: (chosenAnswer: keyof ABCanswers) => void;
   correctAnswer?: keyof ABCanswers;
@@ -13,7 +15,7 @@ interface Props {
 }
 
 export default function ABCAnswer(props: Props) {
-  const { answers, chosenAnswer, correctAnswer, sx } = props;
+  const { answers, mode, chosenAnswer, correctAnswer, sx } = props;
 
   return (
     <Box sx={{ ...sx }}>
@@ -21,7 +23,12 @@ export default function ABCAnswer(props: Props) {
         <AnswerRow
           key={letter}
           checked={chosenAnswer === letter}
-          color={getColorForAnswerButton(letter, correctAnswer, chosenAnswer)}
+          color={getColorForAnswerButton(
+            letter,
+            correctAnswer,
+            chosenAnswer,
+            mode
+          )}
           label={letter}
           disableRipple={!props.setChosenAnswer}
           onClick={() => {

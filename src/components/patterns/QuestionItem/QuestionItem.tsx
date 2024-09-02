@@ -147,13 +147,14 @@ export default function QuestionItem(props: Props) {
           </Typography>
           {question.type === "basic" ? (
             <YesNoAnseswer
-              sx={{ fontSize: { xs: "1em", lg: "1.2em" } }}
               chosenAnswer={
                 "chosenAnswer" in question
                   ? (question.chosenAnswer as boolean)
                   : null
               }
               correctAnswer={question.correctAnswer}
+              mode="preview"
+              sx={{ fontSize: { xs: "1em", lg: "1.2em" } }}
             />
           ) : (
             <ABCAnswer
@@ -164,6 +165,7 @@ export default function QuestionItem(props: Props) {
                   : null
               }
               correctAnswer={question.correctAnswer}
+              mode="preview"
               sx={{ fontSize: "0.9em" }}
             />
           )}
