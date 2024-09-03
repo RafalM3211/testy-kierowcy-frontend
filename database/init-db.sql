@@ -1,28 +1,28 @@
 CREATE EXTENSION pgcrypto;
 
 CREATE TABLE IF NOT EXISTS questions(
-    id SMALLINT PRIMARY KEY,
-    content VARCHAR NOT NULL,
-    correctAnswer CHAR(1) NOT NULL,
-    type VARCHAR(11) NOT NULL,
-    value SMALLINT NOT NULL,
-    media VARCHAR,
+    "id" SMALLINT PRIMARY KEY,
+    "content" VARCHAR NOT NULL,
+    "correctAnswer" CHAR(1) NOT NULL,
+    "type" VARCHAR(11) NOT NULL,
+    "value" SMALLINT NOT NULL,
+    "media" VARCHAR,
     "A" VARCHAR,
     "B" VARCHAR,
     "C" VARCHAR
 );
 
 CREATE TABLE IF NOT EXISTS users(
-    id SERIAL PRIMARY KEY,
-    email VARCHAR NOT NULL UNIQUE,
-    password VARCHAR NOT NULL,
-    name VARCHAR
+    "id" SERIAL PRIMARY KEY,
+    "email" VARCHAR NOT NULL UNIQUE,
+    "password" VARCHAR NOT NULL,
+    "name" VARCHAR
 );
 
 CREATE TABLE IF NOT EXISTS users_questions_answer(
-    user_id INT,
-    question_id SMALLINT,
-    isAnsweredCorrectly BOOLEAN, 
+    "user_id" INT,
+    "question_id" SMALLINT,
+    "isAnsweredCorrectly" BOOLEAN, 
     CONSTRAINT fk_user FOREIGN KEY(user_id) REFERENCES users(id),
     CONSTRAINT fk_question FOREIGN KEY(question_id) REFERENCES questions(id)
 );

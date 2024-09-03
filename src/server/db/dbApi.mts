@@ -50,13 +50,13 @@ export async function getCorrectStatisticsByUserId(
   userId: User["id"]
 ): Promise<Omit<AnswersStatistics, "unanswered">> {
   const sql =
-    "SELECT isansweredcorrectly, COUNT(*) FROM users_questions_answer WHERE user_id=$1 GROUP BY isansweredcorrectly;";
+    'SELECT "isAnsweredCorrectly", COUNT(*) FROM users_questions_answer WHERE user_id=$1 GROUP BY "isAnsweredCorrectly";';
   const res = await query(sql, [userId]);
 
   let wrong: string = "0";
   let correct: string = "0";
   if (res.rowCount != 0) {
-    if (res.rows[0].isansweredcorrectly === false) {
+    if (res.rows[0].isAnsweredCorrectly === false) {
       wrong = res.rows[0].count;
       correct = res.rows[1]?.count || 0;
     } else {
