@@ -1,2 +1,0 @@
-1|johndoe@mail.com|$2a$06$AhA419l7wjCalkejQJx5p.T3IemoRmAhZJhZ.8vG3M6wO/GQnhewq|john
-2|anna@mail.com|$2a$06$fgkW.4C1g7E3ONVgi6NFeubacFfDwGTML84LCbIou2QClyUOom7y2|anna
