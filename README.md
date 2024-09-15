@@ -1,5 +1,7 @@
-# Getting Started with Create React App
+# Frontend for Testy Kierowcy web application
 
+You can view frontend repository for this project following this link: \
+https://github.com/RafalM3211/testy-kierowcy-backend
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -18,15 +20,6 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run server`
-
-Runns application backend
-
-### `npm run convert-wmv`
-
-Converts all .wmv videos to .mp4 in database media directory. This script is a batch file so it works only on windows. Migration to node script is planned in future.
-All official driving license question medias are stored on goverment driving license site ([https://www.gov.pl/web/infrastruktura/prawo-jazdy]) and all video files there have .wmv extension which is not supported in browsers.
 
 ### `npm run build`
 
