@@ -3,7 +3,7 @@ import LoginForm from "./subcomponents/LoginForm";
 import RegistryForm from "./subcomponents/RegistryForm";
 import bgImage from "../../../images/backgrounds/wave.svg";
 import { backgroundImg, flexCenter } from "../../../utility/styling";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useOnMount } from "../../../utility/hooks";
 import { useUserContext } from "../../../context/user/user";
 import { useMutation } from "@tanstack/react-query";
@@ -58,7 +58,7 @@ export default function Login() {
             <Tab label="zaloguj się" />
             <Tab label="zarejestruj się" />
           </Tabs>
-          {currentTab == TabType.login ? <LoginForm /> : <RegistryForm />}
+          {currentTab === TabType.login ? <LoginForm /> : <RegistryForm />}
         </Box>
       )}
     </Box>

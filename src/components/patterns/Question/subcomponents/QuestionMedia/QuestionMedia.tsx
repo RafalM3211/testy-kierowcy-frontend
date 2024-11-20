@@ -5,7 +5,6 @@ import NoMedia from "../NoMedia/NoMedia";
 import { isJpgImage } from "../../../../../utility/utils";
 import type { QuestionMode } from "../../types";
 import type { Question, QuestionType } from "../../../../../types/globalTypes";
-import { flexCenter } from "../../../../../utility/styling";
 
 interface Props {
   media: Question["media"];

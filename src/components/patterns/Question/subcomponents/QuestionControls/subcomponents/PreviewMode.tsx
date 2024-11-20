@@ -7,19 +7,6 @@ import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 
-function drawBasicQuestionCount(count: number, total: number) {
-  const basicQuestionsAmount = Math.min(total, 20);
-  if (count > 20) return "20/20";
-  else return `${count}/${basicQuestionsAmount}`;
-}
-
-function drawSpecializedQuestionCount(count: number, total: number) {
-  const specializedQuestionsAmount = Math.max(total - 20, 0);
-  const specializedQuestionsCount = Math.max(count - 20, 0);
-
-  return `${specializedQuestionsCount}/${specializedQuestionsAmount}`;
-}
-
 export default function PreviewMode() {
   const { answeredQuestions } = useAnswersContext();
 
