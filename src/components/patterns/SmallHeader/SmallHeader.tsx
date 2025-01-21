@@ -1,4 +1,4 @@
-import { AppBar, Box, Button, useTheme, useMediaQuery } from "@mui/material";
+import { AppBar, Box, useTheme, useMediaQuery } from "@mui/material";
 import Logo from "../../atoms/Logo/Logo";
 import Drawer from "../Drawer/Drawer";
 import { useState } from "react";

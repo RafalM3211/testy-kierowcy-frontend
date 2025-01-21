@@ -1,5 +1,5 @@
 import Player from "../../../Player/Player";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import MediaCover from "../MediaCover/MediaCover";
 import { QuestionMode } from "../../types";
 import { useExamControlContext } from "../../../../../context/examControls/examControls";

@@ -2,7 +2,6 @@ import { Box, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import bgImage from "../../../images/backgrounds/wave.svg";
 import { flexCenter, backgroundImg } from "../../../utility/styling";
-import Progress from "../../patterns/Progress/Progress";
 import ButtonLink from "../../atoms/ButtonLink/ButtonLink";
 import SectionSubtitle from "../../atoms/SectionSubtitle/SectionSubtitle";
 import SectionHeader from "../../atoms/SectionHeader/SectionHeader";

@@ -29,7 +29,7 @@ const primaryInterceptors = {
       throw exceptionData;
     }
     if (isOtherError(response.status)) {
-      throw "Other error: " + response.statusText;
+      throw new Error("Other error: " + response.statusText);
     }
     return response;
   },

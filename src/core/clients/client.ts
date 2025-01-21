@@ -1,6 +1,4 @@
 import type {
-  UnauthorizedError,
-  BadRequestError,
   ResponseInterceptor,
   ErrorInterceptor,
   RegisterInterceptorsType,

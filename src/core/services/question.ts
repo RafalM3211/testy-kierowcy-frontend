@@ -5,7 +5,6 @@ import {
   Question,
   User,
 } from "../../types/globalTypes";
-import { isQuestion } from "../../types/typeGuards/typeGuards";
 import { primaryApi } from "../clients/apis";
 
 export async function getExam() {

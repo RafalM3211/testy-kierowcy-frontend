@@ -20,7 +20,6 @@ export default function RegistryForm() {
     isLoading,
     isError: isRegistryError,
     isSuccess,
-    data,
   } = useMutation({
     mutationFn: register,
     onSuccess: async (data) => {

@@ -34,7 +34,6 @@ export default function ProgressSection() {
   const allQuestions = correct + wrong + unanswered;
   const correctPercent = (correct / allQuestions) * 100;
   const wrongPercent = (wrong / allQuestions) * 100;
-  const unansweredPercent = (unanswered / allQuestions) * 100;
 
   return (
     <>
@@ -44,7 +43,7 @@ export default function ProgressSection() {
         będziesz wiedzieć kiedy jesteś gotowy\a do egzaminu
       </SectionSubtitle>
 
-      {status == "error" ? (
+      {status === "error" ? (
         <ErrorBlock sx={{ fontSize: "1.5em", mt: "1em" }} />
       ) : (
         <Progress
@@ -58,7 +57,7 @@ export default function ProgressSection() {
         />
       )}
 
-      {fetchStatus == "fetching" && (
+      {fetchStatus === "fetching" && (
         <Loader
           size={60}
           sx={{
