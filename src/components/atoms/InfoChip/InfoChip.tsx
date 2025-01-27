@@ -11,6 +11,7 @@ export default function InfoChip(props: TypographyTypeMap["props"]) {
         borderRadius: "10px",
         px: "10px",
         mx: "15px",
+        fontSize: "1em"
       })}
       {...otherProps}
     >
