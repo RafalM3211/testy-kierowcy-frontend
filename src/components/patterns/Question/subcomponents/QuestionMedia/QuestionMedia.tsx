@@ -13,7 +13,7 @@ interface Props {
 }
 
 const mediaEndpointUrl = process.env.REACT_APP_SERVER_URL + "media/";
-const maxMediaWidth = 850;
+const maxMediaWidth = 800;
 const aspectRatio = 0.5615;
 const maxMediaHeight = maxMediaWidth * aspectRatio;
 
@@ -29,15 +29,17 @@ export default function QuestionMedia(props: Props) {
         width: {
           xs: "90vw",
           sm: "70vw",
-          md: "68vw",
-          lg: `clamp(850px, 70vw, ${maxMediaWidth}px)`,
+          md: "62vw",
+          lg: "60vw",
         },
+        maxWidth: {lg: `${maxMediaWidth}px`},
         height: {
           xs: aspectRatio * 90 + "vw",
           sm: aspectRatio * 70 + "vw",
-          md: aspectRatio * 68 + "vw",
-          lg: maxMediaHeight + "px",
+          md: aspectRatio * 62 + "vw",
+          lg: aspectRatio * 60 + "vw",
         },
+        maxHeight: {lg: maxMediaHeight + "px"},
         gridRow: {xs: "2", md: "1/3"},
         gridColumn: "1",
         bgcolor: "grey.300",

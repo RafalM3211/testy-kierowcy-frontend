@@ -31,8 +31,7 @@ export default function ExamMode(props: Props) {
         variant="outlined"
         sx={{
           textTransform: "unset",
-          mb: { xs: "0", md: "20px" },
-          fontSize: "0.8em",
+          mb: { xs: "0", md: "15%" },
           minWidth: "fit-content",
           px: { xs: "5px", md: "15px" },
         }}
@@ -40,7 +39,7 @@ export default function ExamMode(props: Props) {
         {isMobile ? (
           <ExitToAppIcon />
         ) : (
-          <Typography>Zakończ egzamin</Typography>
+          <Typography sx={{fontSize: "0.9em",}}>Zakończ egzamin</Typography>
         )}
       </Button>
       <Box
@@ -67,7 +66,8 @@ export default function ExamMode(props: Props) {
             textTransform: "unset",
             px: "35px",
             py: "10px",
-            mt: "20px"
+            mt: "20px",
+            mb: "15%",
           }}
         >
           <Typography fontSize={"0.9em"} variant="button">Następne pytanie</Typography>

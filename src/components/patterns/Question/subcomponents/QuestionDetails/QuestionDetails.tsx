@@ -22,7 +22,7 @@ export default function QuestionDetails(props: Props) {
             justifyContent: "space-evenly",
             alignItems: "flex-start",
             mt: "5px",
-            mb: "30px",
+            mb: "5px",
             ml: "5px",
             gridRow: "1",
             gridColumn: "2",

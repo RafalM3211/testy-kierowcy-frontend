@@ -51,8 +51,7 @@ export default function QuestionContent(props: Props) {
       sx={{
         gridRow: "3",
         gridColumn: "1/3",
-        mt: "20px",
-        mb: "10px",
+        my: "10px",
 
         [theme.breakpoints.down("md")]: {
           display: "flex",
@@ -82,8 +81,8 @@ export default function QuestionContent(props: Props) {
               correctAnswer={props.correctAnswer}
               mode={props.mode}
               sx={{
-                mt: "35px",
-                fontSize: { xs: "1.5em", md: "1.3em", lg: "1.5em" },
+                mt: "20px",
+                fontSize: { xs: "1.5em", md: "1.3em", lg: "1.4em" },
               }}
             />
           ) : (
