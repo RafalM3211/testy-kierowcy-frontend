@@ -44,7 +44,7 @@ export default function Header() {
             ) : (
               mainMenuStructure.map((item, index) => {
                 return (
-                  <ButtonLink to={item.to} key={index}>
+                  <ButtonLink sx={{color: "text.primary"}} to={item.to} key={index}>
                     {item.title}
                   </ButtonLink>
                 );
