@@ -60,7 +60,7 @@ export default function QuestionContent(props: Props) {
         },
       }}
     >
-      <Box sx={{ maxHeight: { xs: "45vh", md: "32vh" }, overflowY: "auto" }}>
+      <Box >
         <Typography
           sx={(theme) => ({
             borderLeft: `3px solid ${theme.palette.primary.main}`,
@@ -72,7 +72,7 @@ export default function QuestionContent(props: Props) {
           {props.content}
         </Typography>
         <Box
-          sx={{ fontSize: { xs: "0.7em", sm: "0.8em", md: "1em" }, mb: "10px" }}
+          sx={{ fontSize: { xs: "0.7em", sm: "0.8em", md: "1em" }, mt: "20px", mb: "10px" }}
         >
           {props.type === "basic" ? (
             <YesNoAnseswer
@@ -81,7 +81,6 @@ export default function QuestionContent(props: Props) {
               correctAnswer={props.correctAnswer}
               mode={props.mode}
               sx={{
-                mt: "20px",
                 fontSize: { xs: "1.5em", md: "1.3em", lg: "1.4em" },
               }}
             />
@@ -92,7 +91,7 @@ export default function QuestionContent(props: Props) {
               correctAnswer={props.correctAnswer}
               setChosenAnswer={setSelectedAnswer}
               mode={props.mode}
-              sx={{ mt: "30px", fontSize: "1.05em" }}
+              sx={{ fontSize: "1.05em" }}
             />
           )}
         </Box>
