@@ -14,10 +14,10 @@ export default function QuestionContainer(props: Props) {
         gridTemplateColumns: { xs: "1fr", md: "min-content 1fr" },
         gridTemplateRows: {
           xs: "min-content min-content 1fr",
-          md: "min-content min-content auto",
+          md: "min-content 1fr auto",
         },
         minHeight: "100vh",
-        pt: { xs: "15px", sm: "60px" },
+        pt: { xs: "15px", sm: "70px" },
         px: { xs: "5px", sm: "16px", md: "24px" },
         boxSizing: "border-box",
         maxWidth: { lg: "1400px" },

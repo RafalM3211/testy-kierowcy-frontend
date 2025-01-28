@@ -26,6 +26,23 @@ export default function ExamMode(props: Props) {
 
   return (
     <>
+      <Button
+        onClick={endExam}
+        variant="outlined"
+        sx={{
+          textTransform: "unset",
+          mb: { xs: "0", md: "20px" },
+          fontSize: "0.8em",
+          minWidth: "fit-content",
+          px: { xs: "5px", md: "15px" },
+        }}
+      >
+        {isMobile ? (
+          <ExitToAppIcon />
+        ) : (
+          <Typography>Zakończ egzamin</Typography>
+        )}
+      </Button>
       <Box
         sx={{
           display: "flex",
@@ -38,23 +55,7 @@ export default function ExamMode(props: Props) {
         <QuestionCount questionCount={questionCount} />
       </Box>
       <TimeCount type={props.type} />
-      <Button
-        onClick={endExam}
-        variant="outlined"
-        sx={{
-          textTransform: "unset",
-          mt: { xs: "0", md: "20px" },
-          fontSize: "0.9em",
-          minWidth: "fit-content",
-          px: { xs: "5px", md: "15px" },
-        }}
-      >
-        {isMobile ? (
-          <ExitToAppIcon />
-        ) : (
-          <Typography>Zakończ egzamin</Typography>
-        )}
-      </Button>
+
 
       {isMobile ? (
         <></>
@@ -64,12 +65,12 @@ export default function ExamMode(props: Props) {
           variant="contained"
           sx={{
             textTransform: "unset",
-            mt: "100px",
             px: "35px",
             py: "10px",
+            mt: "20px"
           }}
         >
-          <Typography variant="button">Następne pytanie</Typography>
+          <Typography fontSize={"0.9em"} variant="button">Następne pytanie</Typography>
         </Button>
       )}
     </>

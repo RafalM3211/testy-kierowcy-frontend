@@ -19,11 +19,13 @@ export default function QuestionDetails(props: Props) {
         <Box
           sx={{
             display: "flex",
-            justifyContent: "center",
+            justifyContent: "space-evenly",
+            alignItems: "flex-start",
             mt: "5px",
-            mb: "15px",
+            mb: "30px",
+            ml: "5px",
             gridRow: "1",
-            gridColumn: "1",
+            gridColumn: "2",
             fontSize: "0.9em"
           }}
         >

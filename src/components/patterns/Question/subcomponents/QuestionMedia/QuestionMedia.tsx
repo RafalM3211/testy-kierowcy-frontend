@@ -38,7 +38,7 @@ export default function QuestionMedia(props: Props) {
           md: aspectRatio * 68 + "vw",
           lg: maxMediaHeight + "px",
         },
-        gridRow: "2",
+        gridRow: {xs: "2", md: "1/3"},
         gridColumn: "1",
         bgcolor: "grey.300",
         mx: "auto",
