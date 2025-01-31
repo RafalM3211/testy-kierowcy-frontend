@@ -16,7 +16,7 @@ export default function QuestionContainer(props: Props) {
           xs: "min-content min-content 1fr",
           md: "min-content min-content auto",
         },
-        minHeight: "100vh",
+        minHeight: "100dvh",
         pt: { xs: "15px", sm: "70px", lg: "8vw" },
         px: { xs: "5px", sm: "16px", md: "24px" },
         boxSizing: "border-box",
