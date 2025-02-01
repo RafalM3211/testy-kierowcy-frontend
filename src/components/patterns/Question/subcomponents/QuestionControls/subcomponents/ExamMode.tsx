@@ -8,6 +8,7 @@ import {
 import QuestionCount from "./QuestionCount";
 import TimeCount from "../../../subcomponents/TimeCount/TimeCount";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import { useExamControlContext } from "../../../../../../context/examControls/examControls";
 import type { ExcludeUndefined } from "../../../types";
 import type { QuestionType } from "../../../../../../types/globalTypes";
@@ -35,11 +36,12 @@ export default function ExamMode(props: Props) {
           minWidth: "fit-content",
           px: { xs: "5px", md: "15px" },
         }}
+        endIcon={isMobile ? null : <ExitToAppIcon />}
       >
         {isMobile ? (
           <ExitToAppIcon />
         ) : (
-          <Typography sx={{fontSize: "0.9em",}}>Zakończ egzamin</Typography>
+          <Typography sx={{ fontSize: "0.9em" }}>Zakończ egzamin</Typography>
         )}
       </Button>
       <Box
@@ -55,7 +57,6 @@ export default function ExamMode(props: Props) {
       </Box>
       <TimeCount type={props.type} />
 
-
       {isMobile ? (
         <></>
       ) : (
@@ -70,7 +71,9 @@ export default function ExamMode(props: Props) {
             mb: "15%",
           }}
         >
-          <Typography fontSize={"0.9em"} variant="button">Następne pytanie</Typography>
+          <Typography fontSize={"0.9em"} variant="button">
+            Następne pytanie
+          </Typography>
         </Button>
       )}
     </>
