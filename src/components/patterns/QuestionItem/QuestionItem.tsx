@@ -36,7 +36,6 @@ export default function QuestionItem(props: Props) {
 
   const theme = useTheme();
   const isLg = useMediaQuery(theme.breakpoints.up("lg"));
-  const isMd = useMediaQuery(theme.breakpoints.up("md"));
   const isOnlyMd = useMediaQuery(theme.breakpoints.only("md"));
 
   function getTrimValue() {

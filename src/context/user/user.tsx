@@ -8,20 +8,19 @@ import {
 import type { User } from "../../types/globalTypes";
 import { useQuery } from "@tanstack/react-query";
 import { checkToken } from "../../core/services/user";
-import { useOnMount } from "../../utility/hooks";
 import Loader from "../../components/patterns/Loader/Loader";
 
 interface Props {
   children: ReactNode;
 }
 
-interface UserContext {
+interface UserContextType {
   user: User | null;
   isLoggedIn: boolean;
   setUser: (user: User | null) => void;
 }
 
-const UserContext = createContext<UserContext | null>(null);
+const UserContext = createContext<UserContextType | null>(null);
 
 export function useUserContext() {
   const contextValue = useContext(UserContext);
