@@ -24,7 +24,6 @@ export default function PreviewQuestion() {
           question={question}
           mode="preview"
           chosenAnswer={question.chosenAnswer}
-          sx={{ pt: "80px" }}
         />
       )}
     </Box>

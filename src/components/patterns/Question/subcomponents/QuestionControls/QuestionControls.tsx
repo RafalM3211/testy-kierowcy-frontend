@@ -15,8 +15,8 @@ export default function QuestionControls(props: Props) {
     <Box
       sx={(theme) => ({
         ...flexCenter,
-        justifyContent: "center",
         flexDirection: "column",
+        justifyContent: "flex-start",
         flexWrap: "nowrap",
         gridRow: "2",
         gridColumn: "2",

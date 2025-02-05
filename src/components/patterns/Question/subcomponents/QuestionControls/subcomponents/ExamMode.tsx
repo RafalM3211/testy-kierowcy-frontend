@@ -8,6 +8,7 @@ import {
 import QuestionCount from "./QuestionCount";
 import TimeCount from "../../../subcomponents/TimeCount/TimeCount";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import { useExamControlContext } from "../../../../../../context/examControls/examControls";
 import type { ExcludeUndefined } from "../../../types";
 import type { QuestionType } from "../../../../../../types/globalTypes";
@@ -26,6 +27,23 @@ export default function ExamMode(props: Props) {
 
   return (
     <>
+      <Button
+        onClick={endExam}
+        variant="outlined"
+        sx={{
+          textTransform: "unset",
+          mb: { xs: "0", md: "15%" },
+          minWidth: "fit-content",
+          px: { xs: "5px", md: "15px" },
+        }}
+        endIcon={isMobile ? null : <ExitToAppIcon />}
+      >
+        {isMobile ? (
+          <ExitToAppIcon />
+        ) : (
+          <Typography sx={{ fontSize: "0.9em" }}>Zakończ egzamin</Typography>
+        )}
+      </Button>
       <Box
         sx={{
           display: "flex",
@@ -38,23 +56,6 @@ export default function ExamMode(props: Props) {
         <QuestionCount questionCount={questionCount} />
       </Box>
       <TimeCount type={props.type} />
-      <Button
-        onClick={endExam}
-        variant="outlined"
-        sx={{
-          textTransform: "unset",
-          mt: { xs: "0", md: "20px" },
-          fontSize: "0.9em",
-          minWidth: "fit-content",
-          px: { xs: "5px", md: "15px" },
-        }}
-      >
-        {isMobile ? (
-          <ExitToAppIcon />
-        ) : (
-          <Typography>Zakończ egzamin</Typography>
-        )}
-      </Button>
 
       {isMobile ? (
         <></>
@@ -64,12 +65,15 @@ export default function ExamMode(props: Props) {
           variant="contained"
           sx={{
             textTransform: "unset",
-            mt: "100px",
             px: "35px",
             py: "10px",
+            mt: "20px",
+            mb: "15%",
           }}
         >
-          <Typography variant="button">Następne pytanie</Typography>
+          <Typography fontSize={"0.9em"} variant="button">
+            Następne pytanie
+          </Typography>
         </Button>
       )}
     </>

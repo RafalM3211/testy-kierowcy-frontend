@@ -10,7 +10,7 @@ export default function InfoChip(props: TypographyTypeMap["props"]) {
         border: `1px solid ${theme.palette.grey[200]}`,
         borderRadius: "10px",
         px: "10px",
-        mx: "15px",
+        fontSize: "1em"
       })}
       {...otherProps}
     >

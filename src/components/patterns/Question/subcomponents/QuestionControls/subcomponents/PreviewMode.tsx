@@ -57,7 +57,7 @@ export default function PreviewMode() {
           <ExitToAppIcon />
         ) : (
           <Typography
-            sx={{ fontSize: { xs: "0.8em", lg: "0.9em" } }}
+            sx={{ fontSize: "0.8em" }}
             variant="h6"
           >
             Powrót do podsumowania
@@ -68,7 +68,7 @@ export default function PreviewMode() {
         sx={{
           textAlign: "center",
           textWrap: "nowrap",
-          fontSize: { xs: "0.6em", lg: "0.9em" },
+          fontSize: { xs: "0.6em", lg: "0.8em" },
           order: { xs: 2, md: 3 },
         }}
       >

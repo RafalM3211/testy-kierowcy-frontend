@@ -19,26 +19,29 @@ export default function QuestionDetails(props: Props) {
         <Box
           sx={{
             display: "flex",
-            justifyContent: "center",
+            justifyContent: "space-evenly",
+            alignItems: "flex-start",
             mt: "5px",
-            mb: "15px",
+            mb: "5px",
+            ml: "5px",
             gridRow: "1",
-            gridColumn: "1",
+            gridColumn: "2",
+            fontSize: "0.9em"
           }}
         >
           <InfoChip>
             Id pytania:{" "}
-            <HighlitedText sx={{ fontSize: "1.2em" }}>{props.id}</HighlitedText>
+            <HighlitedText >{props.id}</HighlitedText>
           </InfoChip>
           <InfoChip>
             Wartość punktowa:{" "}
-            <HighlitedText sx={{ fontSize: "1.2em" }}>
+            <HighlitedText >
               {props.value}
             </HighlitedText>
           </InfoChip>
           <InfoChip>
             Kategoria:{" "}
-            <HighlitedText sx={{ fontSize: "1.2em" }}>B</HighlitedText>
+            <HighlitedText >B</HighlitedText>
           </InfoChip>
         </Box>
       )}
