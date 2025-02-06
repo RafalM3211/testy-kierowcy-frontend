@@ -49,6 +49,7 @@ export default function AnswerRow(props: Props) {
             ml: "0",
             height: "2.5em",
             display: "block",
+            p: 0,
           }}
           {...other}
         >

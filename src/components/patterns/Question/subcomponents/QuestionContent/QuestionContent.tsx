@@ -60,19 +60,23 @@ export default function QuestionContent(props: Props) {
         },
       }}
     >
-      <Box >
+      <Box>
         <Typography
           sx={(theme) => ({
             borderLeft: `3px solid ${theme.palette.primary.main}`,
             p: "5px",
-            fontSize: { xs: "0.9em", sm: "1.1em", md: "1.25em" },
+            fontSize: { xs: "1.1em", sm: "1.1em", md: "1.25em" },
           })}
           variant="h6"
         >
           {props.content}
         </Typography>
         <Box
-          sx={{ fontSize: { xs: "0.7em", sm: "0.8em", md: "1em" }, mt: "20px", mb: "10px" }}
+          sx={{
+            fontSize: { xs: "0.9em", md: "1em" },
+            mt: "20px",
+            mb: "10px",
+          }}
         >
           {props.type === "basic" ? (
             <YesNoAnseswer
@@ -81,7 +85,7 @@ export default function QuestionContent(props: Props) {
               correctAnswer={props.correctAnswer}
               mode={props.mode}
               sx={{
-                fontSize: { xs: "1.5em", md: "1.3em", lg: "1.4em" },
+                fontSize: { xs: "1.3em", lg: "1.4em" },
               }}
             />
           ) : (
