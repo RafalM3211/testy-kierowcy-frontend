@@ -87,9 +87,9 @@ describe("Validation", () => {
             <RegistryForm />
           </DummyProviders>
         );
-        const input = screen.getByLabelText(inputLabel);
-        const clickaway = screen.getByTestId("clickaway");
-        const submitButton = screen.getByRole("button", {
+        const input = await screen.findByLabelText(inputLabel);
+        const clickaway = await screen.findByTestId("clickaway");
+        const submitButton = await screen.findByRole("button", {
           name: "zarejestruj",
         });
 
@@ -114,11 +114,11 @@ test("doesn't show any error and button isn't disabled when every input is corre
       <RegistryForm />
     </DummyProviders>
   );
-  const emailInput = screen.getByLabelText("email*");
-  const nameInput = screen.getByLabelText("nazwa użytkownika*");
-  const passwordInput = screen.getByLabelText("hasło*");
-  const clickaway = screen.getByTestId("clickaway");
-  const submitButton = screen.getByRole("button", {
+  const emailInput = await screen.findByLabelText("email*");
+  const nameInput = await screen.findByLabelText("nazwa użytkownika*");
+  const passwordInput = await screen.findByLabelText("hasło*");
+  const clickaway = await screen.findByTestId("clickaway");
+  const submitButton = await screen.findByRole("button", {
     name: "zarejestruj",
   });
 

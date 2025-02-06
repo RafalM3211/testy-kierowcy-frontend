@@ -9,7 +9,6 @@ import {
   answeredSpecialized,
 } from "../../../tests/dummyQuestion/dummyQuestions";
 import DummyProviders from "../../../tests/dummyProviders/DummyProviders";
-import { act } from "react-dom/test-utils";
 
 const dummyId = answeredBasic.id + 342;
 const anotherAnseweredBasic = { ...answeredBasic, id: dummyId };
@@ -50,9 +49,7 @@ describe("answer button click", () => {
     const yesAnswerButton = await screen.findByRole("button", { name: "tak" });
 
     //act
-    await act(async () => {
-      await user.click(yesAnswerButton);
-    });
+    await user.click(yesAnswerButton);
 
     //assert
     expect(yesAnswerButton).not.toHaveAttribute("aria-pressed", true);
@@ -64,9 +61,7 @@ describe("answer button click", () => {
     const answerButton = await screen.findByText("A", { exact: true });
 
     //act
-    act(() => {
-      user.click(answerButton);
-    });
+    await user.click(answerButton);
 
     //assert
     await waitFor(() => {
