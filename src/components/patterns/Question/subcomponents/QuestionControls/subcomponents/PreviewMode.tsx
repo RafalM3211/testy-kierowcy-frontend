@@ -35,8 +35,7 @@ export default function PreviewMode() {
           display: "flex",
           alignItems: "center",
           mb: { xs: "0px", md: "20px" },
-          ml: { xs: "10%", md: "0" },
-          order: 1,
+          order: 2,
         }}
       >
         <QuestionCount questionCount={questionCount} total={questionsAmount} />
@@ -47,19 +46,17 @@ export default function PreviewMode() {
         size="small"
         variant="outlined"
         sx={{
-          mt: { xs: "20px", md: "50px" },
-          mb: "20px",
+          mt: { xs: "0", md: "50px" },
+          mb: { xs: "0", md: "20px" },
           minWidth: "fit-content",
+          px: { xs: "5px", md: "15px" },
         }}
-        linkStyle={{ order: isMobile ? 3 : 2 }}
+        linkStyle={{ order: isMobile ? 1 : 2 }}
       >
         {isMobile ? (
           <ExitToAppIcon />
         ) : (
-          <Typography
-            sx={{ fontSize: "0.8em" }}
-            variant="h6"
-          >
+          <Typography sx={{ fontSize: "0.8em" }} variant="h6">
             Powrót do podsumowania
           </Typography>
         )}
@@ -77,13 +74,13 @@ export default function PreviewMode() {
           to={"/question/" + previousQuestionId}
         >
           <KeyboardArrowLeftIcon sx={{ fontSize: { xs: "3em", sm: "2em" } }} />
-          {isXs ? "" : "Poprzednie"}
+          {isXs ? <></> : "Poprzednie"}
         </ButtonLink>
         <ButtonLink
           disabled={!nextQuestionId}
           to={"/question/" + nextQuestionId}
         >
-          {isXs ? "" : "Następne"}
+          {isXs ? <></> : "Następne"}
           <KeyboardArrowRightIcon
             sx={{
               fontSize: { xs: "3em", sm: "2em" },

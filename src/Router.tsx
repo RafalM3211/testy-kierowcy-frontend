@@ -34,7 +34,6 @@ const router = createBrowserRouter(
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/summary" element={<Summary />} />
-        <Route path="/question/:id" element={<PreviewQuestion />} />
       </Route>
       <Route
         element={
@@ -45,6 +44,7 @@ const router = createBrowserRouter(
         }
       >
         <Route path="/question" element={<ExamQuestion />} />
+        <Route path="/question/:id" element={<PreviewQuestion />} />
       </Route>
       <Route element={<Outlet />}>
         <Route path="/error/500" element={<Error500 />} />
