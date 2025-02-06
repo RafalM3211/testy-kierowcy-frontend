@@ -77,7 +77,7 @@ export default function Home() {
               component={"p"}
               sx={{ fontSize: { xs: "1em", md: "1.35em" } }}
             >
-              Rozwiaż test na kategorię B
+              Rozwiaż test na kategorię&nbsp;B
             </Typography>
           </ButtonLink>
         </Grid>
