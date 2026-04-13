@@ -16,8 +16,7 @@ export default function Logo(props: Props) {
         sx={(theme) => ({
           pl: "10px",
           borderLeft: `15px solid ${theme.palette.primary.main}`,
-          fontSize: isSmall ? "1.1em" : "2em",
-          /* fontWeight: isSmall ? "bold" : "normal", */
+          fontSize: isSmall ? "1.1em" : "2em"
         })}
         variant="h4"
         component="h2"

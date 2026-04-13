@@ -43,17 +43,17 @@ export default function MediaCover(props: Props) {
           <>
             {props.mediaElement}
             {props.isStarted || props.mode === "preview" || (
-              <Box sx={{ ...flexCenter, flexDirection: "column" }}>
-                <Typography variant={isXs ? "body2" : "h6"} component="p">
+              <Box sx={{ ...flexCenter, flexDirection: "column", fontSize: { xs: 60, sm: 80 }, }}>
+                <Typography sx={{fontSize: "0.25em"}} variant={isXs ? "body2" : "h6"} component="p">
                   {mediaCoverText}
                 </Typography>
                 {props.mediaType === "image" ? (
                   <ImageIcon
-                    sx={{ fontSize: { xs: 60, sm: 90 }, mt: "10px" }}
+                    sx={{ fontSize: "1em", mt: "10px" }}
                   />
                 ) : (
                   <PlayCircleOutlineIcon
-                    sx={{ fontSize: { xs: 60, sm: 90 }, mt: "10px" }}
+                    sx={{ fontSize: "1em",  mt: "10px" }}
                   />
                 )}
               </Box>

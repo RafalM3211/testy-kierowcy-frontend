@@ -32,7 +32,7 @@ export default function AnswerRow(props: Props) {
     >
       <Typography
         sx={{
-          fontSize: "1em",
+          fontSize: "0.9em",
           cursor: "pointer",
           userSelect: "none",
           display: "flex",
@@ -47,7 +47,7 @@ export default function AnswerRow(props: Props) {
             minWidth: "2.7em",
             width: "2.7em",
             ml: "0",
-            height: "2.7em",
+            height: "2.5em",
             display: "block",
           }}
           {...other}

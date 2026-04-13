@@ -90,7 +90,7 @@ export default function Drawer(props: Props) {
                 my: "20px",
               }}
             >
-              <ButtonLink sx={{ py: "0" }} to={item.to}>
+              <ButtonLink sx={{ py: "0", color: "text.primary" }} to={item.to}>
                 {item.title}
               </ButtonLink>
             </ListItem>
