@@ -45,7 +45,7 @@ export default function RegistryForm() {
             .required("to pole jest wymagane")
             .test({
               test: (userName) => {
-                return !userName?.match(/[^(\s|\w)]/);
+                return !userName?.match(/(^\s|\s$|[^a-zA-Z0-9\s])/);
               },
               message: "Nazwa użytkownika nie może zawierać znaków specjalnych",
             })
