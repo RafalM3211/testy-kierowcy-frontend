@@ -22,7 +22,7 @@ export default function Video(props: Props) {
   }
 
   const handleVideoStart = useCallback(() => {
-    if (props.mode === "exam") {
+    if (props.mode !== "preview") {
       setVideoStarted(true);
       if (setTimerState) {
         setTimerState("wait");
@@ -58,7 +58,7 @@ export default function Video(props: Props) {
         mediaElement={
           <Player
             src={props.src}
-            {...(props.mode === "exam" && {
+            {...(props.mode !== "preview" && {
               onError: handleError,
               onEnded: handleVideoEnd,
               playing: !!isVideoStarted,

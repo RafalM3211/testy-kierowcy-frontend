@@ -44,7 +44,7 @@ export default function QuestionContent(props: Props) {
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  const isExamMode = props.mode === "exam";
+  const isPreviewMode = props.mode === "preview";
 
   return (
     <Box
@@ -56,7 +56,7 @@ export default function QuestionContent(props: Props) {
         [theme.breakpoints.down("md")]: {
           display: "flex",
           flexDirection: "column",
-          justifyContent: isExamMode ? "space-between" : "flex-start",
+          justifyContent: isPreviewMode ? "flex-start" : "space-between",
         },
       }}
     >
@@ -101,7 +101,7 @@ export default function QuestionContent(props: Props) {
         </Box>
       </Box>
 
-      {isMobile && isExamMode ? (
+      {isMobile && !isPreviewMode ? (
         <Button
           onClick={handleNextQuestionBtnClick}
           variant="contained"

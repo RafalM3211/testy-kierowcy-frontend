@@ -80,6 +80,22 @@ export default function Home() {
               Rozwiaż test na kategorię B
             </Typography>
           </ButtonLink>
+          <ButtonLink
+            to="/endless"
+            sx={{
+              borderRadius: "15px",
+              px: "50px",
+              mb: "20px",
+            }}
+            variant="outlined"
+          >
+            <Typography
+              component={"p"}
+              sx={{ fontSize: { xs: "1em", md: "1em" } }}
+            >
+              Rozwiązuj pytania w trybie nieskończonym
+            </Typography>
+          </ButtonLink>
         </Grid>
       </Grid>
     </Box>

@@ -1,13 +1,25 @@
 import { Box } from "@mui/material";
+import { ReactElement } from "react";
 import { flexCenter } from "../../../../../utility/styling";
 import type { QuestionMode } from "../../types";
 import type { QuestionType } from "../../../../../types/globalTypes";
 import ExamMode from "./subcomponents/ExamMode";
 import PreviewMode from "./subcomponents/PreviewMode";
+import EndlessMode from "./subcomponents/EndlessMode";
 
 interface Props {
   type: QuestionType;
   mode: QuestionMode;
+}
+
+function choseControlsMode(props: Props) {
+  const componentMap = {
+    exam: <ExamMode type={props.type} />,
+    endless: <EndlessMode type={props.type} />,
+    preview: <PreviewMode />,
+  } as Record<QuestionMode, ReactElement>;
+
+  return componentMap[props.mode];
 }
 
 export default function QuestionControls(props: Props) {
@@ -38,7 +50,7 @@ export default function QuestionControls(props: Props) {
         },
       })}
     >
-      {props.mode === "exam" ? <ExamMode type={props.type} /> : <PreviewMode />}
+      {choseControlsMode(props)}
     </Box>
   );
 }

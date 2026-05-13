@@ -8,6 +8,7 @@ import {
 import Home from "./components/views/Home/Home";
 import ExamQuestion from "./components/views/ExamQuestion/ExamQuestion";
 import PreviewQuestion from "./components/views/PreviewQuestion/PreviewQuestion";
+import EndlessQuestion from "./components/views/EndlessQuestion/EndlessQuestion";
 import Summary from "./components/views/Summary/Summary";
 import Login from "./components/views/Login/Login";
 import Error404 from "./components/views/errors/Error404";
@@ -45,6 +46,7 @@ const router = createBrowserRouter(
       >
         <Route path="/question" element={<ExamQuestion />} />
         <Route path="/question/:id" element={<PreviewQuestion />} />
+        <Route path="/endless" element={<EndlessQuestion />} />
       </Route>
       <Route element={<Outlet />}>
         <Route path="/error/500" element={<Error500 />} />
