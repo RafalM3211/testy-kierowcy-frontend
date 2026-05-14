@@ -8,7 +8,7 @@ import {
 import QuestionCount from "./QuestionCount";
 import TimeCount from "../../../subcomponents/TimeCount/TimeCount";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
-import { useExamControlContext } from "../../../../../../context/examControls/examControls";
+import { useExamControlContext } from "../../../../../../context/controllers/controllerBase";
 import type { ExcludeUndefined } from "../../../types";
 import type { QuestionType } from "../../../../../../types/globalTypes";
 

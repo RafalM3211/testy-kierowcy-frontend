@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 import { useEffect } from "react";
 import { strippedBackground } from "../../../Progress/subcomponents/ProgressBackground";
 import { useTimer } from "react-timer-hook";
-import { useExamControlContext } from "../../../../../context/examControls/examControls";
+import { useExamControlContext } from "../../../../../context/controllers/controllerBase";
 import type {
   QuestionType,
   TimerState,

@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Box } from "@mui/system";
 import MediaCover from "../MediaCover/MediaCover";
-import { useExamControlContext } from "../../../../../context/examControls/examControls";
+import { useExamControlContext } from "../../../../../context/controllers/controllerBase";
 import { QuestionType } from "../../../../../types/globalTypes";
 import { QuestionMode } from "../../types";
 

@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import ABCAnswer from "../../../ABCAnswer/ABCAnswer";
 import YesNoAnseswer from "../../../YesNoAnswer/YesNoAnswer";
-import { useExamControlContext } from "../../../../../context/examControls/examControls";
+import { useExamControlContext } from "../../../../../context/controllers/controllerBase";
 import type {
   BasicQuestion,
   SpecializedQuestion,

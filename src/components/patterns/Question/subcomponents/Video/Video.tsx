@@ -2,7 +2,7 @@ import Player from "../../../Player/Player";
 import { useCallback, useEffect, useState } from "react";
 import MediaCover from "../MediaCover/MediaCover";
 import { QuestionMode } from "../../types";
-import { useExamControlContext } from "../../../../../context/examControls/examControls";
+import { useExamControlContext } from "../../../../../context/controllers/controllerBase";
 
 interface Props {
   src: string;

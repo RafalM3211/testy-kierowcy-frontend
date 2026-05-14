@@ -1,6 +1,6 @@
 import TimeCount from "./TimeCount";
 import { useProvider } from "test-data-provider";
-import { useExamControlContext } from "../../../../../context/examControls/examControls";
+import { useExamControlContext } from "../../../../../context/controllers/controllerBase";
 import type {
   TimerState,
   QuestionType,
@@ -185,6 +185,6 @@ describe("appearance", () => {
         expect(timerLabel).toBeInTheDocument();
         expect(displayedTime).toBeInTheDocument();
       });
-    }
+    },
   );
 });

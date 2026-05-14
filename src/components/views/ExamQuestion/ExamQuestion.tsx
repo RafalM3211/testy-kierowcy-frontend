@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 import { getExam } from "../../../core/services/question";
 import Loader from "../../patterns/Loader/Loader";
 import Question from "../../patterns/Question/Question";
-import ExamControlProvider from "../../../context/examControls/examControls";
+import ExamControllerProvider from "../../../context/controllers/examController";
 import { useOnMount } from "../../../utility/hooks";
 import ErrorScreen from "../../patterns/ErrorScreen/ErrorScreen";
 import { useState } from "react";
@@ -42,7 +42,7 @@ export default function ExamQuestion() {
       ) : isError ? (
         <ErrorScreen />
       ) : currentQuestion ? (
-        <ExamControlProvider
+        <ExamControllerProvider
           dataControls={
             dataControls as typeof dataControls & {
               currentQuestion: QuestionType;
@@ -51,7 +51,7 @@ export default function ExamQuestion() {
           examQuestions={data}
         >
           <Question question={currentQuestion as QuestionType} mode="exam" />
-        </ExamControlProvider>
+        </ExamControllerProvider>
       ) : (
         <></>
       )}

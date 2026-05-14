@@ -2,8 +2,7 @@ import { Box, Typography } from "@mui/material";
 import { useEffect } from "react";
 import { flexCenter } from "../../../../../utility/styling";
 import bgImage from "../../../../../images/backgrounds/noPhoto.png";
-import { useExamControlContext } from "../../../../../context/examControls/examControls";
-
+import { useExamControlContext } from "../../../../../context/controllers/controllerBase";
 export default function NoMedia() {
   const { setTimerState, timerState } = useExamControlContext();
 
