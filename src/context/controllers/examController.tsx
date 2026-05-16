@@ -1,12 +1,9 @@
 import { ReactNode } from "react";
-import type {
-  EndExamPayload,
-  NextBtnClickPayload,
-  DataControls,
-} from "./types";
-import type { ExamQuestions } from "../../types/globalTypes";
-
 import ControllerBaseProvider, { checkAndSaveAnswer } from "./controllerBase";
+import { useAnswersContext } from "../Answers/Answers";
+import { useOnMount } from "../../utility/hooks";
+import type { EndPayload, NextBtnClickPayload, DataControls } from "./types";
+import type { ExamQuestions } from "../../types/globalTypes";
 
 interface Props {
   dataControls: DataControls;
@@ -14,23 +11,20 @@ interface Props {
   children: ReactNode;
 }
 
-function getNextQuestion(examQuestions: ExamQuestions, currentIndex: number) {
-  const flattenQuestions = [
-    ...examQuestions.basic,
-    ...examQuestions.specialized,
-  ];
+function getNextQuestion(data: ExamQuestions, currentIndex: number) {
+  const flattenQuestions = [...data.basic, ...data.specialized];
   return flattenQuestions[currentIndex + 1];
 }
 
 function handleNextQuestionBtnClick(payload: NextBtnClickPayload) {
   if (payload.questionCount === 32) {
-    payload.endExam();
+    payload.end && payload.end();
   } else {
     payload.nextQuestion();
   }
 }
 
-function endExam(payload: EndExamPayload) {
+function end(payload: EndPayload) {
   payload.addAnswer(payload.currentQuestion, payload.selectedAnswer);
   if (payload.user) {
     checkAndSaveAnswer(
@@ -43,13 +37,18 @@ function endExam(payload: EndExamPayload) {
 }
 
 export default function ExamControllerProvider(props: Props) {
+  const { clearAnswers } = useAnswersContext();
+
+  useOnMount(() => {
+    clearAnswers();
+  });
   return (
     <ControllerBaseProvider
-      examQuestions={props.examQuestions}
+      data={props.examQuestions}
       dataControls={props.dataControls}
-      getNextQuestion={getNextQuestion}
+      getNextQuestion={getNextQuestion as any}
       onNextBtnClick={handleNextQuestionBtnClick}
-      onEndExam={endExam}
+      onEnd={end}
     >
       {props.children}
     </ControllerBaseProvider>

@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Box } from "@mui/system";
 import MediaCover from "../MediaCover/MediaCover";
-import { useExamControlContext } from "../../../../../context/controllers/controllerBase";
+import { useControllContext } from "../../../../../context/controllers/controllerBase";
 import { QuestionType } from "../../../../../types/globalTypes";
 import { QuestionMode } from "../../types";
 
@@ -15,7 +15,7 @@ interface Props {
 export default function Image(props: Props) {
   const [isError, setError] = useState(false);
 
-  const { setTimerState, timerState } = useExamControlContext();
+  const { setTimerState, timerState } = useControllContext();
   const isQuestionStarted = timerState === "answer";
 
   function handleError() {

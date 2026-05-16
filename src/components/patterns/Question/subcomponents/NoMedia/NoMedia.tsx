@@ -2,9 +2,9 @@ import { Box, Typography } from "@mui/material";
 import { useEffect } from "react";
 import { flexCenter } from "../../../../../utility/styling";
 import bgImage from "../../../../../images/backgrounds/noPhoto.png";
-import { useExamControlContext } from "../../../../../context/controllers/controllerBase";
+import { useControllContext } from "../../../../../context/controllers/controllerBase";
 export default function NoMedia() {
-  const { setTimerState, timerState } = useExamControlContext();
+  const { setTimerState, timerState } = useControllContext();
 
   useEffect(() => {
     if (timerState === "wait") {

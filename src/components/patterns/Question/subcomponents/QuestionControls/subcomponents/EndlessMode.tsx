@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import TimeCount from "../../TimeCount/TimeCount";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
-import { useExamControlContext } from "../../../../../../context/controllers/controllerBase";
+import { useControllContext } from "../../../../../../context/controllers/controllerBase";
 import type { ExcludeUndefined } from "../../../types";
 import type { QuestionType } from "../../../../../../types/globalTypes";
 import QuestionCountUnit from "./QuestionCountUnit";
@@ -17,8 +17,8 @@ interface Props {
 }
 
 export default function EndlessMode(props: Props) {
-  const controls = useExamControlContext();
-  const { endExam, handleNextQuestionBtnClick, questionCount } =
+  const controls = useControllContext();
+  const { end, handleNextQuestionBtnClick, questionCount } =
     controls as ExcludeUndefined<typeof controls>;
 
   const theme = useTheme();
@@ -27,7 +27,7 @@ export default function EndlessMode(props: Props) {
   return (
     <>
       <Button
-        onClick={endExam}
+        onClick={end}
         variant="outlined"
         sx={{
           textTransform: "unset",

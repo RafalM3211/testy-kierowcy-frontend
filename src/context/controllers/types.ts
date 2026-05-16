@@ -3,7 +3,7 @@ import type { NavigateFunction } from "react-router-dom";
 
 export type SetAnswerFunction = (answer: Exclude<Answer, null>) => void;
 
-export interface EndExamPayload {
+export interface EndPayload {
   currentQuestion: Question;
   selectedAnswer: Answer;
   user: User | null;
@@ -12,8 +12,12 @@ export interface EndExamPayload {
 }
 
 export interface NextBtnClickPayload {
-  questionCount: number;
-  endExam: () => void;
+  questionCount?: number;
+  userId?: User["id"];
+  currentQuestion?: Question;
+  selectedAnswer?: Answer;
+
+  end?: () => void;
   nextQuestion: () => void;
 }
 

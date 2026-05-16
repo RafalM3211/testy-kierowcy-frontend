@@ -1,6 +1,6 @@
 import TimeCount from "./TimeCount";
 import { useProvider } from "test-data-provider";
-import { useExamControlContext } from "../../../../../context/controllers/controllerBase";
+import { useControllContext } from "../../../../../context/controllers/controllerBase";
 import type {
   TimerState,
   QuestionType,
@@ -9,7 +9,7 @@ import { render, act, screen } from "@testing-library/react";
 
 jest.mock("../../../../../context/examControls/examControls", () => {
   return {
-    useExamControlContext: jest.fn(),
+    useControllContext: jest.fn(),
   };
 });
 
@@ -78,7 +78,7 @@ const dummyContextValue = {
 describe("on expire behavior", () => {
   it("calls setTimerState with 'wait' if previous timer state was 'prepare' after 20 seconds", () => {
     //arrange
-    const context = useExamControlContext as jest.Mock;
+    const context = useControllContext as jest.Mock;
     context.mockReturnValue(dummyContextValue);
     render(<TimeCount type="basic" />);
 
@@ -97,7 +97,7 @@ describe("on expire behavior", () => {
   });
   it("calls nextQuestion if previous timer state was 'answer' after 15 seconds", () => {
     //arrange
-    const context = useExamControlContext as jest.Mock;
+    const context = useControllContext as jest.Mock;
     context.mockReturnValue({
       ...dummyContextValue,
       timerState: "answer",
@@ -119,7 +119,7 @@ describe("on expire behavior", () => {
   });
   it("doesn't expire if timer state is 'wait'", () => {
     //arrange
-    const context = useExamControlContext as jest.Mock;
+    const context = useControllContext as jest.Mock;
     context.mockReturnValue({ ...dummyContextValue, timerState: "wait" });
     render(<TimeCount type="basic" />);
 
@@ -134,7 +134,7 @@ describe("on expire behavior", () => {
   });
   it("expires afrer 50 seconds when type is 'specialized'", () => {
     //arrange
-    const context = useExamControlContext as jest.Mock;
+    const context = useControllContext as jest.Mock;
     context.mockReturnValue({
       ...dummyContextValue,
       timerState: "answer",
@@ -168,7 +168,7 @@ describe("appearance", () => {
     }) => {
       it(description, () => {
         //arrange
-        const context = useExamControlContext as jest.Mock;
+        const context = useControllContext as jest.Mock;
         context.mockReturnValue({ ...dummyContextValue, timerState });
         render(<TimeCount type={questionType} />);
 

@@ -2,7 +2,7 @@ import Player from "../../../Player/Player";
 import { useCallback, useEffect, useState } from "react";
 import MediaCover from "../MediaCover/MediaCover";
 import { QuestionMode } from "../../types";
-import { useExamControlContext } from "../../../../../context/controllers/controllerBase";
+import { useControllContext } from "../../../../../context/controllers/controllerBase";
 
 interface Props {
   src: string;
@@ -13,7 +13,7 @@ export default function Video(props: Props) {
   const [isVideoStarted, setVideoStarted] = useState(false);
   const [isError, setError] = useState(false);
 
-  const { questionCount, setTimerState, timerState } = useExamControlContext();
+  const { questionCount, setTimerState, timerState } = useControllContext();
 
   function handleVideoEnd() {
     if (setTimerState) {

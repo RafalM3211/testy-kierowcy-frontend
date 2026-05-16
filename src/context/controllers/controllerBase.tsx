@@ -1,12 +1,11 @@
 import { ReactNode, createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAnswersContext } from "../Answers/Answers";
-import { useOnMount } from "../../utility/hooks";
 import { sendAnswer } from "../../core/services/question";
 import { useUserContext } from "../user/user";
 import type {
   SetAnswerFunction,
-  EndExamPayload,
+  EndPayload,
   NextBtnClickPayload,
   DataControls,
 } from "./types";
@@ -20,7 +19,7 @@ import type {
 
 interface Controls {
   nextQuestion: () => void;
-  endExam: () => void;
+  end: () => void;
   handleNextQuestionBtnClick: () => void;
   questionCount: number;
   selectedAnswer: Answer;
@@ -33,21 +32,21 @@ interface Controls {
 
 interface Props {
   dataControls: DataControls;
-  examQuestions: ExamQuestions;
+  data: ExamQuestions | Question;
   children: ReactNode;
 
   getNextQuestion: (
-    examQuestions: ExamQuestions,
-    currentIndex: number,
+    data: ExamQuestions | Question,
+    currentIndex?: number,
   ) => Question;
-  onEndExam: (payload: EndExamPayload) => void;
+  onEnd: (payload: EndPayload) => void;
   onNextBtnClick: (payload: NextBtnClickPayload) => void;
 }
 
-const ExamControlContext = createContext<Controls | null>(null);
+const ControllContext = createContext<Controls | null>(null);
 
-export function useExamControlContext() {
-  const contextValue = useContext(ExamControlContext);
+export function useControllContext() {
+  const contextValue = useContext(ControllContext);
   if (!contextValue) {
     const emptyControls = {
       nextQuestion: undefined,
@@ -77,7 +76,7 @@ export function checkAndSaveAnswer(
 }
 
 export default function ControllerBaseProvider(props: Props) {
-  const { addAnswer, clearAnswers, answeredQuestions } = useAnswersContext();
+  const { addAnswer, answeredQuestions } = useAnswersContext();
   const navigate = useNavigate();
   const { user } = useUserContext();
 
@@ -91,15 +90,11 @@ export default function ControllerBaseProvider(props: Props) {
   function nextQuestion() {
     setSelectedAnswer(null);
     addAnswer(currentQuestion, selectedAnswer);
-
     if (user) {
       checkAndSaveAnswer(user.id, currentQuestion, selectedAnswer);
     }
 
-    const nextQuestion = props.getNextQuestion(
-      props.examQuestions,
-      questionCount - 1,
-    );
+    const nextQuestion = props.getNextQuestion(props.data, questionCount - 1);
 
     if (nextQuestion.type === "basic") {
       setStarted(false);
@@ -112,8 +107,8 @@ export default function ControllerBaseProvider(props: Props) {
     props.dataControls.setCurrentQuestion(nextQuestion);
   }
 
-  function endExam() {
-    props.onEndExam({
+  function end() {
+    props.onEnd({
       currentQuestion,
       selectedAnswer,
       user,
@@ -125,18 +120,14 @@ export default function ControllerBaseProvider(props: Props) {
   function handleNextQuestionBtnClick() {
     props.onNextBtnClick({
       questionCount,
-      endExam,
+      end,
       nextQuestion,
     });
   }
 
-  useOnMount(() => {
-    clearAnswers();
-  });
-
   const controls = {
     nextQuestion,
-    endExam,
+    end,
     handleNextQuestionBtnClick,
     questionCount,
     selectedAnswer,
@@ -147,9 +138,11 @@ export default function ControllerBaseProvider(props: Props) {
     setTimerState,
   } satisfies Controls;
 
+  console.log(questionCount);
+
   return (
-    <ExamControlContext.Provider value={controls}>
+    <ControllContext.Provider value={controls}>
       {props.children}
-    </ExamControlContext.Provider>
+    </ControllContext.Provider>
   );
 }

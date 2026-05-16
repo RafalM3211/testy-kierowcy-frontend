@@ -1,9 +1,9 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { Box } from "@mui/material";
-import { getExam } from "../../../core/services/question";
+import { getEndlessQuestion } from "../../../core/services/question";
 import Loader from "../../patterns/Loader/Loader";
 import Question from "../../patterns/Question/Question";
-import ExamControlProvider from "../../../context/examControls/examControls";
+import EndlessControllerProvider from "../../../context/controllers/endlessController";
 import { useOnMount } from "../../../utility/hooks";
 import ErrorScreen from "../../patterns/ErrorScreen/ErrorScreen";
 import { useState } from "react";
@@ -12,19 +12,18 @@ import { backgroundImg } from "../../../utility/styling";
 import bgImage from "../../../images/backgrounds/wave.svg";
 
 export default function EndlessQuestion() {
-  const { data, isLoading, isFetching, isError, refetch } = useQuery({
-    queryKey: ["question"],
-    queryFn: getExam,
+  const { mutate, isLoading, isError, data } = useMutation({
+    mutationKey: ["endlessQuestion"],
+    mutationFn: getEndlessQuestion,
     retry: 0, //for developement only
-    enabled: false,
     onSuccess: (data) => {
-      setCurrentQuestion(data.basic[0]);
+      setCurrentQuestion(data);
     },
   });
 
   const [currentQuestion, setCurrentQuestion] = useState<
     QuestionType | undefined
-  >(data?.basic[0]);
+  >(data);
 
   const dataControls = {
     currentQuestion,
@@ -32,26 +31,30 @@ export default function EndlessQuestion() {
   };
 
   useOnMount(() => {
-    refetch();
+    mutate([]);
   });
 
   return (
     <Box sx={{ ...backgroundImg(bgImage) }}>
-      {isLoading || isFetching ? (
+      {isLoading || !data ? (
         <Loader />
       ) : isError ? (
         <ErrorScreen />
       ) : currentQuestion ? (
-        <ExamControlProvider
+        <EndlessControllerProvider
           dataControls={
             dataControls as typeof dataControls & {
               currentQuestion: QuestionType;
             }
           }
-          examQuestions={data}
+          question={data}
+          getNextQuestion={(answeredIds: number[]) => {
+            mutate(answeredIds);
+            return data;
+          }}
         >
           <Question question={currentQuestion as QuestionType} mode="endless" />
-        </ExamControlProvider>
+        </EndlessControllerProvider>
       ) : (
         <></>
       )}

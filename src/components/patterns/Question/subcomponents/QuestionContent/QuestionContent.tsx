@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import ABCAnswer from "../../../ABCAnswer/ABCAnswer";
 import YesNoAnseswer from "../../../YesNoAnswer/YesNoAnswer";
-import { useExamControlContext } from "../../../../../context/controllers/controllerBase";
+import { useControllContext } from "../../../../../context/controllers/controllerBase";
 import type {
   BasicQuestion,
   SpecializedQuestion,
@@ -39,7 +39,7 @@ type Props = SpecializedQuestionProps | BasicQuesitonProps;
 
 export default function QuestionContent(props: Props) {
   const { selectedAnswer, setSelectedAnswer, handleNextQuestionBtnClick } =
-    useExamControlContext();
+    useControllContext();
   const chosenAnswer = selectedAnswer ?? props.chosenAnswer;
 
   const theme = useTheme();

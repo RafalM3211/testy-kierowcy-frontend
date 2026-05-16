@@ -15,7 +15,7 @@ const primaryApi = createClient(apiUrl, fetch);
 const primaryInterceptors = {
   response: async (response: Response) => {
     if (isInternalServerError(response.status)) {
-      window.location.assign("/error/500");
+      // window.location.assign("/error/500");
     }
     if (isForbidden(response.status)) {
       window.location.assign("/login");

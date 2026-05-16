@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 import { useEffect } from "react";
 import { strippedBackground } from "../../../Progress/subcomponents/ProgressBackground";
 import { useTimer } from "react-timer-hook";
-import { useExamControlContext } from "../../../../../context/controllers/controllerBase";
+import { useControllContext } from "../../../../../context/controllers/controllerBase";
 import type {
   QuestionType,
   TimerState,
@@ -49,7 +49,7 @@ function getTimerLabel(timerState: TimerState) {
 }
 
 export default function TimeCount(props: Props) {
-  const controls = useExamControlContext();
+  const controls = useControllContext();
   const { timerState, setTimerState, nextQuestion, questionCount } =
     controls as ExcludeUndefined<typeof controls>;
   const totalTime = getTotalTime(props.type, timerState);

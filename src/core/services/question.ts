@@ -16,10 +16,24 @@ export async function getExam() {
   return (await res.json()) as ExamQuestions;
 }
 
+export async function getEndlessQuestion(prevQuestionsIds: number[]) {
+  const res = await primaryApi.post(
+    "question/endless",
+    {
+      prevQuestionsIds,
+    },
+    {
+      headers: { "Content-Type": "application/json" },
+    },
+  );
+
+  return (await res.json()) as Question;
+}
+
 export async function sendAnswer(
   userId: User["id"],
   questionId: Question["id"],
-  isCorrect: boolean
+  isCorrect: boolean,
 ) {
   await primaryApi.post("question/send-answer", {
     userId,
@@ -29,7 +43,7 @@ export async function sendAnswer(
 }
 
 export async function getAnswersStatistics(
-  queryContext: QueryFunctionContext<[string, number]>
+  queryContext: QueryFunctionContext<[string, number]>,
 ) {
   const userId = queryContext.queryKey[1];
   const res = await primaryApi.get("question/answers-statistics/" + userId, {

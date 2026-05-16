@@ -1,46 +1,46 @@
-export default function Asd() {
-  return <></>;
+import { ReactNode } from "react";
+import type { EndPayload, NextBtnClickPayload, DataControls } from "./types";
+import type { Question } from "../../types/globalTypes";
+
+import ControllerBaseProvider, { checkAndSaveAnswer } from "./controllerBase";
+import { useAnswersContext } from "../Answers/Answers";
+
+interface Props {
+  dataControls: DataControls;
+  question: Question;
+  children: ReactNode;
+  getNextQuestion: (answeredIds: number[]) => Question;
 }
 
-/* import ExamControlProvider, { checkAndSaveAnswer } from "./ExamControlProvider";
+function handleNextQuestionBtnClick(payload: NextBtnClickPayload) {
+  payload.nextQuestion();
+}
 
+function end(payload: EndPayload) {
+  payload.addAnswer(payload.currentQuestion, payload.selectedAnswer);
+  if (payload.user) {
+    checkAndSaveAnswer(
+      payload.user.id,
+      payload.currentQuestion,
+      payload.selectedAnswer,
+    );
+  }
+  payload.navigate("/");
+}
 
-const MyCustomExamComponent = () => {
-  // Custom button behavior (e.g., ends exam at 15 questions instead of 32)
-  const customNextBtnClick = ({ questionCount, endExam, nextQuestion }) => {
-    if (questionCount === 15) {
-      endExam();
-    } else {
-      nextQuestion();
-    }
-  };
-
-  // Custom end behavior (e.g., navigates to a different page)
-  const customEndExam = ({
-    currentQuestion,
-    selectedAnswer,
-    user,
-    addAnswer,
-    navigate,
-  }) => {
-    addAnswer(currentQuestion, selectedAnswer);
-    if (user) {
-      // We can reuse the exported save function!
-      checkAndSaveAnswer(user.id, currentQuestion, selectedAnswer);
-    }
-    navigate("/custom-summary-page");
-  };
+export default function EndlessControllerProvider(props: Props) {
+  const { answeredQuestions } = useAnswersContext();
+  const answeredIds = answeredQuestions.map((question) => question.id);
 
   return (
-    <ExamControlProvider
-      examQuestions={questions}
-      dataControls={dataControls}
-      onNextBtnClick={customNextBtnClick} // <-- Injecting logic
-      onEndExam={customEndExam} // <-- Injecting logic
-      // getNextQuestion is omitted, so it falls back to the default!
+    <ControllerBaseProvider
+      data={props.question}
+      dataControls={props.dataControls}
+      getNextQuestion={() => props.getNextQuestion(answeredIds)}
+      onNextBtnClick={handleNextQuestionBtnClick}
+      onEnd={end}
     >
-      <ExamUI />
-    </ExamControlProvider>
+      {props.children}
+    </ControllerBaseProvider>
   );
-};
- */
+}
