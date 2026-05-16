@@ -12,7 +12,7 @@ import { backgroundImg } from "../../../utility/styling";
 import bgImage from "../../../images/backgrounds/wave.svg";
 
 export default function EndlessQuestion() {
-  const { mutate, isLoading, isError, data } = useMutation({
+  const { mutate, isError, data } = useMutation({
     mutationKey: ["endlessQuestion"],
     mutationFn: getEndlessQuestion,
     retry: 0, //for developement only
@@ -36,7 +36,7 @@ export default function EndlessQuestion() {
 
   return (
     <Box sx={{ ...backgroundImg(bgImage) }}>
-      {isLoading || !data ? (
+      {!currentQuestion ? (
         <Loader />
       ) : isError ? (
         <ErrorScreen />
@@ -47,10 +47,10 @@ export default function EndlessQuestion() {
               currentQuestion: QuestionType;
             }
           }
-          question={data}
+          question={currentQuestion}
           getNextQuestion={(answeredIds: number[]) => {
             mutate(answeredIds);
-            return data;
+            return currentQuestion;
           }}
         >
           <Question question={currentQuestion as QuestionType} mode="endless" />
