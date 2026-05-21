@@ -23,6 +23,7 @@ export async function getEndlessQuestion(prevQuestionsIds: number[]) {
       prevQuestionsIds,
     },
     {
+      credentials: "include",
       headers: { "Content-Type": "application/json" },
     },
   );

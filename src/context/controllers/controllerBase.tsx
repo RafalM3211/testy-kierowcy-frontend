@@ -138,8 +138,6 @@ export default function ControllerBaseProvider(props: Props) {
     setTimerState,
   } satisfies Controls;
 
-  console.log(questionCount);
-
   return (
     <ControllContext.Provider value={controls}>
       {props.children}
